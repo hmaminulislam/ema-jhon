@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Products.css'
 const Products = () => {
@@ -12,11 +14,38 @@ const Products = () => {
         .then(data => setProducts(data))
     }, [])
 
+    useEffect( () => {
+        const storedCart = getStoredCart();
+        const saveCart = []
+        // console.log(storedCart);
+        for(const id in storedCart) {
+            // console.log(id)
+            const addedProduct = products.find( product => product.id === id);
+            // console.log(addedProduct)
+            if(addedProduct) {
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                saveCart.push(addedProduct)
+            }
+        }
+        setCart(saveCart)
+    }, [products])
 
-    const addToCartHandle = (product) => {
-        // console.log(product)
-        const newCart = [...cart, product];
-        setCart(newCart)
+    const addToCartHandle = (SelectedProduct) => {
+        let newCart = [];
+        const exists = cart.find(product => product.id === SelectedProduct.id);
+        if(!exists) {
+            SelectedProduct.quantity = 1;
+            newCart = [...cart, SelectedProduct];
+        }
+        else {
+            const rest = cart.filter(product => product.id !== SelectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists]
+        }
+
+        setCart(newCart);
+        addToDb(SelectedProduct.id)
     }
     
     return (
@@ -30,8 +59,7 @@ const Products = () => {
                 }
             </div>
             <div className="order-summary">
-                <h3>Order Summary</h3>
-                <p>Item added: {cart.length}</p>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );

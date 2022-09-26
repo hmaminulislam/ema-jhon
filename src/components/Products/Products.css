@@ -1,14 +1,15 @@
 .products-container {
-    margin-top: 50px;
     display: grid;
     grid-template-columns: 4fr 1fr;
-    padding: 0 50px;
+    margin: 0 50px;
 }
 .product-container {
+    padding-top: 50px;
+    padding-right: 45px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
 }
 .order-summary {
-    text-align: center;
+    background: rgba(255, 153, 0, 0.3);
 }
