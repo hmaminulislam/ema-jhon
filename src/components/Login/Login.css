@@ -1,0 +1,68 @@
+.form-container {
+    max-width: 450px;
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    margin: 20px auto;
+    padding: 15px 45px;
+}
+.form-container h2 {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    letter-spacing: 0.0025em;
+    color: #2A414F;
+    text-align: center;
+    margin-top: 0;
+}
+.form-control {
+    margin-bottom: 20px;
+}
+.form-control label {
+    display: block;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    color: #2A414F;
+    margin-bottom: 6px;
+}
+.form-control input {
+    width: 100%;
+    padding: 13px 10px;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.btn-login-container {
+    width: 100%;
+}
+.btn-login {
+    width: 100%;
+    padding: 15px 10px;
+    background: rgba(255, 153, 0, 0.3);
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    color: #0E161A;
+}
+.btn-login:hover {
+    background: rgba(255, 153, 0, 0.6);
+}
+.new-account-text {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: 500px;
+    color: #4f5558;
+}
+.new-account-link {
+    text-decoration: none;
+    color: #ff9900
+}

@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { Link, useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Products.css'
 const Products = () => {
 
-    const [products, setProducts] = useState([]);
+    const products = useLoaderData();
     const [cart, setCart] = useState([]);
 
-    useEffect( () => {
-        fetch('products.json')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    }, [])
 
     useEffect( () => {
+
         const storedCart = getStoredCart();
         const saveCart = []
-        // console.log(storedCart);
+
         for(const id in storedCart) {
-            // console.log(id)
             const addedProduct = products.find( product => product.id === id);
-            // console.log(addedProduct)
             if(addedProduct) {
                 const quantity = storedCart[id];
                 addedProduct.quantity = quantity;
@@ -47,21 +42,31 @@ const Products = () => {
         setCart(newCart);
         addToDb(SelectedProduct.id)
     }
+
+    const clearCartBtnHandle = () => {
+      setCart([]);
+      deleteShoppingCart()
+    }
     
     return (
-        <div className='products-container'>
-            <div className="product-container">
-                {
-                    products.map(product => <Product product={product}
-                         key={product.id}
-                         addToCartHandle={addToCartHandle}
-                         ></Product>)
-                }
-            </div>
-            <div className="order-summary">
-                <Cart cart={cart}></Cart>
-            </div>
+      <div className="products-container">
+        <div className="product-container">
+          {products.map(product => 
+            <Product
+              product={product}
+              key={product.id}
+              addToCartHandle={addToCartHandle}
+            ></Product>
+          )}
         </div>
+        <div className="order-summary">
+          <Cart cart={cart} clearCartBtnHandle={clearCartBtnHandle}>
+            <Link to={'/orders'}>
+              <button className='review-order-btn'>Review Order</button>
+            </Link>
+          </Cart>
+        </div>
+      </div>
     );
 };
 

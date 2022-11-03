@@ -13,3 +13,13 @@
 .order-summary {
     background: rgba(255, 153, 0, 0.3);
 }
+.review-order-btn {
+    padding: 10px;
+    width: 100%;
+    border: 0;
+    background-color: rgb(194, 9, 9);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}

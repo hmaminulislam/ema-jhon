@@ -1,0 +1,17 @@
+Authentication
+
+1. create project from firebase
+2. app register from firebase
+3. install firebse
+4. firebase config filse add this project firebase folder
+5. firebase config export app
+6. firebase enable emial and passwrod method and others methods
+7. create context folder and UserContext components file
+8. create AuthContxt 
+9. index.js file a UserContext vitore app.js rakte hobe
+10. UserContext compnents a props hisabe children receive kora
+11. AuthContext.Provider ar vitore children rakte hobe
+12. Authcontext.Provider ar value hisabe userInfo ke pathano
+13. context ta export kora and all pages theke import kore use kora
+14. import auth and getAuth parameter ar vitor fireabse ar config ar app import kora
+15. 

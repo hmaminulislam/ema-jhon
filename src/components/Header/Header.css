@@ -18,3 +18,10 @@ body {
 .header a:hover {
     color: orange;
 }
+.logout-btn {
+    padding: 4px 6px;
+    border: none;
+    background-color: orange;
+    margin-left: 10px;
+    cursor: pointer;
+}
