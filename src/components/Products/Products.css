@@ -23,3 +23,18 @@
     cursor: pointer;
     margin-bottom: 15px;
 }
+.pagination {
+    text-align: center;
+    margin: 20px auto;
+}
+.pagination button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    font-weight: 700;
+    cursor: pointer;
+}
+.pagination .selected {
+    background-color: red;
+    color: white;
+}
